@@ -10,6 +10,7 @@ export const Login = () => {
     console.log(result);
     navigate("/");
   };
+
   return (
     <div>
       <h1>Sign in with Google to continue</h1>
