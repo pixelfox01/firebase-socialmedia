@@ -1,4 +1,3 @@
-import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Navbar } from "./components/navbar";
@@ -7,7 +6,7 @@ import { Login } from "./pages/login";
 
 function App() {
   return (
-    <div className="App">
+    <div className="text-lg font-sans text-center">
       <Router>
         <Navbar />
         <Routes>
