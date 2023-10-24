@@ -1,19 +1,9 @@
 import { Link } from "react-router-dom";
-import { signOut } from "firebase/auth";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../config/firebase";
+import { useAuth } from "../authContext";
+import { logout } from "../helpers/logout";
 
 export const Navbar = () => {
-  const [user] = useAuthState(auth);
-
-  const logout = async () => {
-    try {
-      await signOut(auth);
-      console.log("Logged out");
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  const user = useAuth();
 
   return (
     <nav className="p-5 border-b-2 flex bg-gray-900 relative">
