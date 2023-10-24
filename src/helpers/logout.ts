@@ -6,6 +6,12 @@ export const logout = async () => {
     await signOut(auth);
     console.log("Logged out");
   } catch (err) {
-    console.log(err);
+    let message: string = "";
+    if (err instanceof Error) {
+      message = err.message;
+    } else {
+      message = String(err);
+    }
+    throw new Error(message);
   }
 };

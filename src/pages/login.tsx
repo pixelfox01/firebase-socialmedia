@@ -13,13 +13,15 @@ export const Login = () => {
 
   return (
     <div>
-      <h1>Sign in with Google to continue</h1>
+      <h1 className="text-2xl font-bold my-3">
+        Sign in with Google to continue
+      </h1>
       {/* <button className="transition-color ease-in duration-75 text-white bg-blue-600 hover:bg-blue-700 border-2 py-1 px-4 rounded-md">
         Sign in with Google
       </button> */}
       <button
         type="button"
-        className="text-white bg-[#1d6cea] hover:bg-[#1d6cea]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
+        className="my-3 text-white bg-[#1d6cea] hover:bg-[#1d6cea]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
         onClick={signInWithGoogle}
       >
         <svg
