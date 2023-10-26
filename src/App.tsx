@@ -7,7 +7,7 @@ import { CreatePost } from "./pages/create-post/create-post";
 
 function App() {
   return (
-    <div className="text-lg font-sans text-center">
+    <div className="text-lg font-sans text-center h-screen">
       <Router>
         <Navbar />
         <Routes>

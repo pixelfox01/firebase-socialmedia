@@ -9,7 +9,7 @@ export const Navbar = () => {
   const navigate = useNavigate();
 
   return (
-    <nav className="p-5 border-b-2 flex bg-gray-900 relative">
+    <nav className="p-5 flex bg-gray-900">
       <div className="flex items-center text-slate-100 border-r border-slate-100 pr-4 mr-4">
         <Link to="/">
           <h2>Firebase Social Media</h2>
