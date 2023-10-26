@@ -37,8 +37,10 @@ export const PostForm = () => {
         username: user?.displayName,
         ...data,
       });
+      alert("Post created successfully!");
       navigate("/");
     } catch (error) {
+      alert("Something went wrong!");
       console.log(error);
     }
   };
