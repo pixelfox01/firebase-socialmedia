@@ -2,8 +2,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { collection, addDoc } from "firebase/firestore";
-import { db } from "../../config/firebase";
-import { useAuth } from "../../authContext";
+import { auth, db } from "../../config/firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 interface FormData {
   title: string;
@@ -11,7 +11,7 @@ interface FormData {
 }
 
 export const PostForm = () => {
-  const user = useAuth();
+  const [user] = useAuthState(auth);
 
   const schema = yup.object().shape({
     title: yup.string().required("Title is required!").min(5).max(100),
