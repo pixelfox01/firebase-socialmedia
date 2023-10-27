@@ -32,15 +32,24 @@ export const Navbar = () => {
           >
             Create Post
           </Link>
-          <button
-            onClick={() => {
-              logout();
-              navigate("/");
-            }}
-            className="flex items-center hover:underline underline-offset-4"
-          >
-            Logout
-          </button>
+          <div className="flex items-center">
+            <div className="flex items-center mx-6">
+              <img
+                src={user?.photoURL || ""}
+                alt=""
+                className="w-10 h-10 rounded-full"
+              />
+            </div>
+            <button
+              onClick={() => {
+                logout();
+                navigate("/");
+              }}
+              className="flex items-center hover:underline underline-offset-4"
+            >
+              Logout
+            </button>
+          </div>
         </div>
       )}
     </nav>
