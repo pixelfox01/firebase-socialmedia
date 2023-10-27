@@ -2,8 +2,9 @@ import { collection, getDocs } from "firebase/firestore";
 import { auth, db } from "../../config/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useEffect, useState } from "react";
+import { Post } from "./post";
 
-interface IPost {
+export interface IPost {
   id: string;
   title: string;
   description: string;
@@ -39,13 +40,7 @@ export const Home = () => {
             Welcome {user?.displayName}
           </h1>
           <div className="flex flex-col items-center">
-            {postsList?.map((post) => (
-              <div key={post.id} className="border-2 rounded-md my-3 w-1/2">
-                <h2 className="text-2xl font-bold">{post.title}</h2>
-                <p className="text-lg">{post.description}</p>
-                <p className="text-sm">Posted by {post.username}</p>
-              </div>
-            ))}
+            {postsList?.map((post) => <Post post={post} />)}
           </div>
         </div>
       )}
