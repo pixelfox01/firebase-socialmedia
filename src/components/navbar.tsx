@@ -9,42 +9,40 @@ export const Navbar = () => {
   const navigate = useNavigate();
 
   return (
-    <nav className="p-5 flex bg-gray-900">
-      <div className="flex items-center text-slate-100 border-r border-slate-100 pr-4 mr-4 min-w-fit">
+    <nav className="bg-gray-900 flex h-20 p-4 text-xl text-white items-center">
+      <div className="min-h-full min-w-fit border-r-2 border-r-white pl-2 pr-4 flex items-center">
         <Link to="/">
           <h2>Firebase Social Media</h2>
         </Link>
       </div>
-      <ul className={"flex text-slate-900 " + (user === null ? "" : "w-full")}>
-        <li className="w-full">
-          {user === null ? (
-            <Link
-              to="/login"
-              className="px-2 mx-2 font-medium text-slate-100 hover:underline underline-offset-8"
-            >
-              Login
-            </Link>
-          ) : (
-            <div className="flex justify-between">
-              <Link
-                to="/create-post"
-                className=" bg-blue-800 rounded-md px-4 py-1 mx-2 font-medium text-slate-100 hover:bg-blue-900 underline-offset-8"
-              >
-                Create Post
-              </Link>
-              <button
-                onClick={() => {
-                  logout();
-                  navigate("/");
-                }}
-                className="px-2 mx-2 font-medium text-slate-100 hover:underline underline-offset-8"
-              >
-                Logout
-              </button>
-            </div>
-          )}
-        </li>
-      </ul>
+      {user === null ? (
+        <div className=" w-full flex justify-end px-4">
+          <Link
+            to="/login"
+            className="flex items-center hover:underline underline-offset-4"
+          >
+            Login
+          </Link>
+        </div>
+      ) : (
+        <div className="w-full px-4 flex justify-between">
+          <Link
+            to="/create-post"
+            className="flex items-center h-[40px] bg-blue-600 hover:bg-blue-700 rounded-md px-4 ml-4 text-lg"
+          >
+            Create Post
+          </Link>
+          <button
+            onClick={() => {
+              logout();
+              navigate("/");
+            }}
+            className="flex items-center hover:underline underline-offset-4"
+          >
+            Logout
+          </button>
+        </div>
+      )}
     </nav>
   );
 };
