@@ -1,4 +1,4 @@
-import { collection, getDocs } from "firebase/firestore";
+import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
 import { auth, db } from "../../config/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useEffect, useState } from "react";
@@ -28,6 +28,15 @@ export const Home = () => {
     }
   };
 
+  const deletePost = async (post: IPost) => {
+    try {
+      await deleteDoc(doc(db, "posts", post.id));
+      await getPosts();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     getPosts();
   }, []);
@@ -40,7 +49,9 @@ export const Home = () => {
             Welcome {user?.displayName}
           </h1>
           <div className="flex flex-col items-center">
-            {postsList?.map((post) => <Post post={post} />)}
+            {postsList?.map((post) => (
+              <Post post={post} deletePost={deletePost} />
+            ))}
           </div>
         </div>
       )}

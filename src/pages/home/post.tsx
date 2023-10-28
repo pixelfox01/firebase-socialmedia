@@ -14,6 +14,7 @@ import { useEffect, useState } from "react";
 
 interface PostProps {
   post: IPost;
+  deletePost: (post: IPost) => void;
 }
 
 interface ILike {
@@ -21,7 +22,7 @@ interface ILike {
 }
 
 export const Post = (props: PostProps) => {
-  const { post } = props;
+  const { post, deletePost } = props;
   const [user] = useAuthState(auth);
   const [likes, setLikes] = useState<ILike[] | null>(null);
 
@@ -75,6 +76,11 @@ export const Post = (props: PostProps) => {
 
   return (
     <div className="border border-slate-600 w-1/2 my-4 rounded-md p-4 min-w-[20rem]">
+      {post.userId === user?.uid && (
+        <div className="flex justify-end">
+          <button onClick={() => deletePost({ ...post })}>&#10006;</button>
+        </div>
+      )}
       <h1 className="font-bold mb-4">{post.title}</h1>
       <p>{post.description}</p>
       <div className="flex justify-end mt-4">
