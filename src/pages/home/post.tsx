@@ -74,19 +74,13 @@ export const Post = (props: PostProps) => {
   }, []);
 
   return (
-    <div className="border border-slate-600 w-1/2 my-4 rounded-md py-4">
+    <div className="border border-slate-600 w-1/2 my-4 rounded-md p-4 min-w-[20rem]">
       <h1 className="font-bold mb-4">{post.title}</h1>
       <p>{post.description}</p>
       <div className="flex justify-end mt-4">
         <p className="mx-4">- {post.username}</p>
       </div>
       <div className="mt-2">
-        {/* <button
-          className="rounded-2xl border border-slate-700 w-16 hover:bg-blue-600"
-          onClick={userHasLiked ? removeLike : addLike}
-        >
-          {userHasLiked ? <>&#9829;</> : <>&#9825;</>}
-        </button> */}
         {!userHasLiked ? (
           <button
             className="rounded-2xl border border-slate-700 w-16 hover:bg-blue-600"
