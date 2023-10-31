@@ -76,11 +76,6 @@ export const Post = (props: PostProps) => {
 
   return (
     <div className="border border-slate-600 w-1/2 my-4 rounded-md p-4 min-w-[20rem]">
-      {post.userId === user?.uid && (
-        <div className="flex justify-end">
-          <button onClick={() => deletePost({ ...post })}>&#10006;</button>
-        </div>
-      )}
       <h1 className="font-bold mb-4">{post.title}</h1>
       <p>{post.description}</p>
       <div className="flex justify-end mt-4">
@@ -104,6 +99,16 @@ export const Post = (props: PostProps) => {
         )}
         {likes && <p>{likes.length}</p>}
       </div>
+      {post.userId === user?.uid && (
+        <div className="flex justify-end">
+          <button
+            onClick={() => deletePost({ ...post })}
+            className="text-xs text-red-600 border border-slate-950 px-2 mt-4 rounded-md hover:bg-red-600 hover:text-white"
+          >
+            Delete Post
+          </button>
+        </div>
+      )}
     </div>
   );
 };
